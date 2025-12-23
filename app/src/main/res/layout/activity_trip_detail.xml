@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F7FC">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:background="#F5F7FA">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#F5F7FA"
+            app:title="@string/trip_detail_title"
+            app:titleCentered="true"
+            app:titleTextColor="#19204C"
+            app:elevation="0dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- 顶部统计卡片：标题/天数 + 饼图 + 总金额 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="#FAFCFF"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="7dp"
+                app:strokeColor="#C2D3FF"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="28dp"
+                    android:paddingBottom="18dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <TextView
+                        android:id="@+id/tvTripTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="目的地"
+                        android:textSize="22sp"
+                        android:textColor="#2956E8"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:id="@+id/tvTripDays"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="12天"
+                        android:textSize="16sp"
+                        android:textColor="#7687A5"
+                        android:gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="sans-serif" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="260dp"
+                        android:layout_marginTop="16dp">
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/pieChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="260dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/white"/>
+                    </FrameLayout>
+
+                    <!-- ✅ 新增：饼图下总金额 -->
+                    <TextView
+                        android:id="@+id/tvTotalAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="总计：¥0"
+                        android:textColor="#19204C"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 分类入口标题 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="分类账单"
+                android:textColor="#19204C"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
+
+            <!-- ✅ 四大类方块卡片（两列网格的观感，用两行 LinearLayout 实现，避免引入Grid依赖） -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardTransport"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="4dp"
+                        app:strokeColor="#E7ECF6"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="交通"
+                                android:textColor="#19204C"
+                                android:textStyle="bold"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/tvSumTransport"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="¥0"
+                                android:textColor="#2956E8"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardFood"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="4dp"
+                        app:strokeColor="#E7ECF6"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="饮食"
+                                android:textColor="#19204C"
+                                android:textStyle="bold"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/tvSumFood"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="¥0"
+                                android:textColor="#2956E8"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardHotel"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="10dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="4dp"
+                        app:strokeColor="#E7ECF6"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="住宿"
+                                android:textColor="#19204C"
+                                android:textStyle="bold"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/tvSumHotel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="¥0"
+                                android:textColor="#2956E8"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardExperience"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="22dp"
+                        app:cardElevation="4dp"
+                        app:strokeColor="#E7ECF6"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="体验"
+                                android:textColor="#19204C"
+                                android:textStyle="bold"
+                                android:textSize="16sp"/>
+
+                            <TextView
+                                android:id="@+id/tvSumExperience"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="¥0"
+                                android:textColor="#2956E8"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- 保留新增记录按钮（你现有逻辑复用） -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddExpense"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="20dp"
+                android:text="新增记录"
+                android:textColor="#ffffff"
+                android:textSize="17sp"
+                app:backgroundTint="#4D7CFA"
+                app:cornerRadius="18dp"/>
+
+            <!-- ✅ 旧的“花费清单”RecyclerView 删掉了；二级清单下一步实现 -->
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

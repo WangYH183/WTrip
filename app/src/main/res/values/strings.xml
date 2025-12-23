@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">BTrip</string>
+    <string name="trip_detail_title">行程详情</string>
+    <string name="create_trip_title">新建行程</string>
+    <string name="add_trip">新增行程</string>
+
+    <!-- new -->
+    <string name="expense_detail_photo">照片（最多1张）</string>
+    <string name="expense_detail_pick_photo">选择照片</string>
+    <string name="expense_detail_remove_photo">移除</string>
+
+    <string name="expense_detail_title">消费内容</string>
+    <string name="expense_detail_amount">花费（人民币）</string>
+    <string name="expense_detail_main_type">类型（交通/饮食/住宿/体验）</string>
+    <string name="expense_detail_payment">支付方式</string>
+
+    <string name="expense_detail_time_optional">时间（可不填）</string>
+    <string name="expense_detail_platform_optional">预定平台（可不填）</string>
+    <string name="expense_detail_review_optional">简评（可不填，20字以内）</string>
+    <string name="expense_detail_subtype_optional">类别（可不填）</string>
+
+    <string name="expense_detail_transport">交通信息</string>
+    <string name="expense_detail_transport_type_optional">交通类别（可不填）</string>
+    <string name="expense_detail_route_optional">出发地-到达地（可不填）</string>
+    <string name="expense_detail_period_optional">交通时段（可不填）</string>
+    <string name="expense_detail_arrive_time_readonly">到达时间（自动显示）</string>
+    <string name="expense_detail_duration_optional">时长HH:mm（可不填）</string>
+
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+</resources>

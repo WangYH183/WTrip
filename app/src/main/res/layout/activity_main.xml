@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F7FC">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:background="@android:color/transparent">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#F5F7FA"
+            app:title="@string/app_name"
+            app:titleCentered="true"
+            app:titleTextColor="#19204C"
+            app:elevation="0dp"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的行程"
+                android:textSize="22sp"
+                android:textColor="#19204C"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTrips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 替换为底部圆角蓝色文字添加按钮 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddTrip"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        app:cornerRadius="38dp"
+        android:text="+"
+        android:textSize="32sp"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#4D7CFA"
+        android:elevation="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

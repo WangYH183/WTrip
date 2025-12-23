@@ -1,0 +1,9 @@
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="background_gray">#F3F5F7</color>
+    <color name="card_stroke">#E6EAF1</color>
+    <color name="major_blue">#3266FF</color>
+    <color name="text_title">#222222</color>
+    <color name="text_sub">#888888</color>
+    <color name="divide_line">#EBEEF3</color>
+</resources>

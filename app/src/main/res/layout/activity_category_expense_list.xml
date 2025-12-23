@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F7FC">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:background="#F5F7FA">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#F5F7FA"
+            app:title=""
+            app:titleCentered="true"
+            app:titleTextColor="#19204C"
+            app:elevation="0dp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="交通"
+            android:textColor="#19204C"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tvSum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="合计：¥0"
+            android:textColor="#7687A5"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"/>
+
+        <!-- ✅ 空态（与 CategoryExpenseListActivity 里的 tvEmpty 对应） -->
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="暂无记录"
+            android:textColor="#7687A5"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTiles"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="24dp" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
