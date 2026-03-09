@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.baguetteui.btrip"
+    namespace = "com.baguetteui.wtrip"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.baguetteui.btrip"
+        applicationId = "com.baguetteui.wtrip"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

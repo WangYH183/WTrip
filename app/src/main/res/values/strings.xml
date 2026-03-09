@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BTrip</string>
+    <string name="app_name">WTrip</string>
     <string name="trip_detail_title">行程详情</string>
     <string name="create_trip_title">新建行程</string>
     <string name="add_trip">新增行程</string>

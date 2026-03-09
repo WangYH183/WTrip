@@ -15,5 +15,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BTrip"
+rootProject.name = "WTrip"
 include(":app")
